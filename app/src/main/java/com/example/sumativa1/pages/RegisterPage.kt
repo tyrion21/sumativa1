@@ -79,7 +79,7 @@ fun RegisterPage(modifier: Modifier = Modifier, navController: NavController, au
         Spacer(modifier = Modifier.height(8.dp))
 
         TextButton(onClick = {
-            navController.navigate("register")
+            navController.navigate("login")
         }) {
             Text(text = "Ya tienes una cuenta, inicia sesión")
         }

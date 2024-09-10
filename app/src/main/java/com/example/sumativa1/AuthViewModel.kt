@@ -59,6 +59,21 @@ class AuthViewModel : ViewModel(){
         auth.signOut()
         _authState.value = AuthState.Unauthenticated
     }
+
+    fun resetPassword(email: String, callback: (String) -> Unit) {
+        if (email.isEmpty()) {
+            callback("El correo electrónico no puede estar vacío")
+            return
+        }
+        auth.sendPasswordResetEmail(email)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    callback("Correo de restablecimiento de contraseña enviado")
+                } else {
+                    callback(task.exception?.message ?: "Ha ocurrido un error")
+                }
+            }
+    }
 }
 
 sealed class AuthState{
