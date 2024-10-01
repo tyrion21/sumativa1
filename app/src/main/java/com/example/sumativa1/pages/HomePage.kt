@@ -65,7 +65,11 @@ fun HomePage(modifier: Modifier = Modifier, navController: NavController, authVi
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            CardItem(text = "Emergencia", color = Color.Yellow)
+            CardItem(text = "Emergencia", color = Color.Yellow){
+            }
+            CardItem(text = "Mapa", color = Color.Green) {
+                navController.navigate("map")
+            }
         }
 
         Spacer(modifier = Modifier.height(16.dp))
